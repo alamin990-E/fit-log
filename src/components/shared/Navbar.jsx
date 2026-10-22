@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-white/30">
-      <div className="container mx-auto relative flex items-center justify-between bg-black px-3 py-4 md:px-0">
+      <div className="container mx-auto relative flex items-center justify-between bg-black px-4 py-5 md:px-0">
         {/* Mobile Hamburger */}
         <div>
           <div className="text-[#D1D5DB]">
@@ -55,7 +55,7 @@ const Navbar = () => {
 
         {/* Logo for Desktop and Mobile */}
         <div className="absolute left-[42%] sm:left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0">
-          <Link href="/" className="font-display flex items-center gap-2 text-lg font-bold tracking-wider text-[#FFFFFF]">
+          <Link href="/" className="font-[Oswald] flex items-center gap-2 text-lg font-bold tracking-wider text-[#FFFFFF]">
             <Image src={Logo} alt="FitLog"  width={20} height={20} />
             FITLOG
           </Link>
@@ -72,7 +72,7 @@ const Navbar = () => {
           <div className="flex items-center gap-2  rounded-2xl cursor-pointer font-medium text-xs sm:text-sm md:text-base">
             <span>Plan</span>
             <span className="w-5 h-5 md:w-6 md:h-6 bg-[#ccff00] text-black text-xs sm:text-sm font-semibold rounded-full flex items-center justify-center">
-              2
+              0
             </span>
           </div>
 
@@ -80,7 +80,7 @@ const Navbar = () => {
           <div className="flex items-center gap-1.5  rounded-2xl cursor-pointer text-[#D1D5DB] font-medium text-xs sm:text-sm md:text-base">
             <span>Saved</span>
             <span className="w-5 h-5 md:w-6 md:h-6 border border-[#2D313B] text-[#D1D5DB] text-xs sm:text-sm font-semibold rounded-full flex items-center justify-center">
-              2
+              0
             </span>
           </div>
         </div>

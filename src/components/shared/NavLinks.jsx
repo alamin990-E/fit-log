@@ -15,8 +15,8 @@ const NavLinks = ({ href, children }) => {
       href={href}
       className={`${
         isActive
-          ? "bg-[#1A2312] px-5 py-2.5 text-[#C2F800] rounded-[20px]"
-          : "text-[#D1D5DB]  bg-[#13161D] md:bg-black rounded-2xl px-5 py-2.5"
+          ? "bg-[#1A2312] px-5 py-2 text-[#C2F800] rounded-[20px]"
+          : "text-[#D1D5DB]  bg-[#13161D] md:bg-black rounded-2xl px-5 py-2"
       } font-medium text-xs md:text-[14px]`}
     >
       {children}
