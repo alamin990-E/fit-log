@@ -1,10 +1,17 @@
-import Banner from '@/components/workouts/Banner';
-import React from 'react';
+import AllWorkouts from "@/components/workouts/AllWorkouts";
+import Banner from "@/components/workouts/Banner";
 
-const HomePage = () => {
+import { getExercise } from "@/lib/Api";
+
+
+
+const HomePage = async() => {
+   const data = await getExercise()
+   const exercises = data
   return (
     <div>
-         <Banner></Banner>
+      <Banner></Banner>
+      <AllWorkouts exercises={exercises}></AllWorkouts>
     </div>
   );
 };
