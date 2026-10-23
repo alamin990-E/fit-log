@@ -14,13 +14,13 @@ const ExerciseDetailspage = async ({ params }) => {
     <div className="container mx-auto my-10 py-5 px-4 md:px-0">
       <div className="grid md:grid-cols-1 justify-center items-center gap-15 lg:grid-cols-2">
         {/* Workout Image */}
-        <div className="overflow-hidden grid items-center">
+
+        <div className="relative h-87.5 w-full overflow-hidden rounded-2xl sm:h-130 md:h-140 lg:h-170">
           <Image
             src={exercise.image}
             alt={exercise.name}
-            width={800}
-            height={735}
-            className="h-full w-full rounded-2xl object-cover"
+            fill
+            className="object-cover"
           />
         </div>
 
@@ -48,7 +48,7 @@ const ExerciseDetailspage = async ({ params }) => {
           </div>
           {/* Workout Specifications */}
           <div className="mb-5 overflow-x-auto rounded-2xl bg-[#232834]">
-            <table className="table px-4 py-3">
+            <table className="table px-4 py-3 ">
               <tbody>
                 {/* Equipment */}
                 <tr>
@@ -135,7 +135,7 @@ const ExerciseDetailspage = async ({ params }) => {
             </ul>
           </div>
           {/* Button */}
-          <div className="mt-6 flex flex-col items-stretch gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+          <div className="mt-6 flex flex-row flex-wrap items-center gap-3">
             <TodayPlanButton exercise={exercise}></TodayPlanButton>
             <SaveButton exercise={exercise}></SaveButton>
           </div>

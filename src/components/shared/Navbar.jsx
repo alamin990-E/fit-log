@@ -22,10 +22,10 @@ const Navbar = () => {
     return (
       <>
         <li>
-          <NavLinks  href={"/"}>Workouts</NavLinks>
+          <NavLinks href={"/"}>Workouts</NavLinks>
         </li>
         <li>
-          <NavLinks  href={"/myPlan"}>My Plan</NavLinks>
+          <NavLinks href={"/myPlan"}>My Plan</NavLinks>
         </li>
       </>
     );
@@ -43,20 +43,21 @@ const Navbar = () => {
             />
           </div>
 
-        {/* Mobile Hamburger Menu */}
+          {/* Mobile Hamburger Menu */}
           {open && (
             <div className="absolute top-full left-4 mt-2 w-[40%] flex flex-col bg-[#13161D] p-2 container mx-auto text-xs font-medium md:hidden">
-              <ul className="flex flex-col py-2 gap-6">
-                {navMenu()}
-              </ul>
+              <ul className="flex flex-col py-2 gap-6">{navMenu()}</ul>
             </div>
           )}
         </div>
 
         {/* Logo for Desktop and Mobile */}
         <div className="absolute left-[42%] sm:left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0">
-          <Link href="/" className="font-[Oswald] flex items-center gap-2 text-lg font-bold tracking-wider text-[#FFFFFF]">
-            <Image src={Logo} alt="FitLog"  width={20} height={20} />
+          <Link
+            href="/"
+            className="font-[Oswald] flex items-center gap-2 text-lg font-bold tracking-wider text-[#FFFFFF]"
+          >
+            <Image src={Logo} alt="FitLog" width={20} height={20} />
             FITLOG
           </Link>
         </div>
@@ -69,20 +70,24 @@ const Navbar = () => {
         {/* Badge Container */}
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-4 text-[#D1D5DB]">
           {/* Plan Badge */}
-          <div className="flex items-center gap-2  rounded-2xl cursor-pointer font-medium text-xs sm:text-sm md:text-base">
-            <span>Plan</span>
-            <span className="w-5 h-5 md:w-6 md:h-6 bg-[#ccff00] text-black text-xs sm:text-sm font-semibold rounded-full flex items-center justify-center">
-              0
-            </span>
-          </div>
+          <Link href={"/myPlan"}>
+            <div className="flex items-center gap-2  rounded-2xl cursor-pointer font-medium text-xs sm:text-sm md:text-base">
+              <span>Plan</span>
+              <span className="w-5 h-5 md:w-6 md:h-6 bg-[#ccff00] text-black text-xs sm:text-sm font-semibold rounded-full flex items-center justify-center">
+                0
+              </span>
+            </div>
+          </Link>
 
           {/* Saved Badge */}
-          <div className="flex items-center gap-1.5  rounded-2xl cursor-pointer text-[#D1D5DB] font-medium text-xs sm:text-sm md:text-base">
-            <span>Saved</span>
-            <span className="w-5 h-5 md:w-6 md:h-6 border border-[#2D313B] text-[#D1D5DB] text-xs sm:text-sm font-semibold rounded-full flex items-center justify-center">
-              0
-            </span>
-          </div>
+          <Link href={"/myPlan"}>
+            <div className="flex items-center gap-1.5  rounded-2xl cursor-pointer text-[#D1D5DB] font-medium text-xs sm:text-sm md:text-base">
+              <span>Saved</span>
+              <span className="w-5 h-5 md:w-6 md:h-6 border border-[#2D313B] text-[#D1D5DB] text-xs sm:text-sm font-semibold rounded-full flex items-center justify-center">
+                0
+              </span>
+            </div>
+          </Link>
         </div>
       </div>
     </nav>
