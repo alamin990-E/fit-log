@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from "react";
@@ -6,8 +7,11 @@ import Logo from "../../assets/logo.png";
 import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
 import NavLinks from "./NavLinks";
+import { useExerciseContext } from "@/context/Exercise";
 
 const Navbar = () => {
+  const { todayList, saveList } =
+    useExerciseContext();
   const [open, setOpen] = useState(false);
 
   const handleHamburger = () => {
@@ -71,20 +75,20 @@ const Navbar = () => {
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-4 text-[#D1D5DB]">
           {/* Plan Badge */}
           <Link href={"/myPlan"}>
-            <div className="flex items-center gap-2  rounded-2xl cursor-pointer font-medium text-xs sm:text-sm md:text-base">
+            <div className="flex items-center gap-2 rounded-2xl cursor-pointer font-medium text-xs sm:text-sm md:text-base">
               <span>Plan</span>
               <span className="w-5 h-5 md:w-6 md:h-6 bg-[#ccff00] text-black text-xs sm:text-sm font-semibold rounded-full flex items-center justify-center">
-                0
+                {todayList.length}
               </span>
             </div>
           </Link>
 
           {/* Saved Badge */}
           <Link href={"/myPlan"}>
-            <div className="flex items-center gap-1.5  rounded-2xl cursor-pointer text-[#D1D5DB] font-medium text-xs sm:text-sm md:text-base">
+            <div className="flex items-center gap-1.5 rounded-2xl cursor-pointer text-[#D1D5DB] font-medium text-xs sm:text-sm md:text-base">
               <span>Saved</span>
               <span className="w-5 h-5 md:w-6 md:h-6 border border-[#2D313B] text-[#D1D5DB] text-xs sm:text-sm font-semibold rounded-full flex items-center justify-center">
-                0
+                {saveList.length}
               </span>
             </div>
           </Link>
