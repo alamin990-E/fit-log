@@ -1,32 +1,46 @@
-'use client'
+
+"use client";
 import { useExerciseContext } from "@/context/Exercise";
 import React from "react";
 import { LuCalendarPlus2 } from "react-icons/lu";
 import { toast } from "react-toastify";
 
 const TodayPlanButton = ({ exercise }) => {
-     const {todayList, setTodayList } =
-        useExerciseContext();
-    const isTodayPlanFull = todayList.length >=5
-    const alreadyInToday = todayList.some(item => item.id === exercise.id)
-    const handleTodayAdd = ()=>{
-        if(alreadyInToday){
-            toast.error(`${exercise.name} is already in Today's Plan!`);
-        }
-        if(isTodayPlanFull){
-            toast.error(`Today's Plan is full!`);
-        }
-        setTodayList((prev)=>[...prev,exercise])
-        toast.success(`${exercise.name} is added to Today's Plan!`)
+  const { todayList, setTodayList } = useExerciseContext();
+
+  const isTodayPlanFull = todayList.length >= 5;
+  const alreadyInToday = todayList.some(
+    (item) => item.id === exercise.id,
+  );
+
+  const handleTodayAdd = () => {
+    if (alreadyInToday) {
+      toast.error(`${exercise.name} is already in Today's Plan!`);
+      return;
     }
+
+    if (isTodayPlanFull) {
+      toast.error(`Today's Plan is full!`);
+      return;
+    }
+
+    setTodayList((prev) => [...prev, exercise]);
+    toast.success(`${exercise.name} is added to Today's Plan!`);
+  };
+
   return (
     <div>
       <button
-        disabled={alreadyInToday}
         onClick={handleTodayAdd}
-        className="disabled:cursor-not-allowed disabled:pointer-events-auto flex items-center justify-center gap-1 rounded-lg cursor-pointer bg-[#c6ff00] px-4 py-2 text-xs font-bold text-black transition hover:bg-[#b5eb00] sm:gap-2 sm:px-5 sm:py-3 sm:text-[14px]"
+        className={`flex items-center justify-center gap-1 rounded-lg ${
+          alreadyInToday || isTodayPlanFull
+            ? "cursor-not-allowed"
+            : "cursor-pointer"
+        } bg-[#c6ff00] px-4 py-2 text-xs font-bold text-black transition hover:bg-[#b5eb00] sm:gap-2 sm:px-5 sm:py-3 sm:text-[14px]`}
       >
-        <span><LuCalendarPlus2 /></span>
+        <span>
+          <LuCalendarPlus2 />
+        </span>
         Add to today&apos;s plan
       </button>
     </div>

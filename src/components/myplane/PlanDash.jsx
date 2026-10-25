@@ -16,9 +16,9 @@ const PlanDash = () => {
 
   const currentList = activeTab === "Today's Plan" ? todayList : saveList;
 
-  // Filter 1: Sorting logic
+  
   const sortedList = [...currentList].sort((a, b) => {
-    if (sortBy === "Duration") return a.duration - b.duration;
+    if (sortBy === "Duration") return b.duration - a.duration;
     if (sortBy === "Calories") return a.caloriesBurned - b.caloriesBurned;
     if (sortBy === "Rating") return b.rating - a.rating;
     return 0;
