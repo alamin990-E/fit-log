@@ -1,4 +1,3 @@
-
 "use client";
 import { useExerciseContext } from "@/context/Exercise";
 import Image from "next/image";
@@ -12,11 +11,10 @@ const PlanDash = () => {
     useExerciseContext();
   const [activeTab, setActiveTab] = useState("Today's Plan");
   const [sortBy, setSortBy] = useState("Duration");
-  const [orderId, setOrderId] = useState([]);
+  
 
   const currentList = activeTab === "Today's Plan" ? todayList : saveList;
 
-  
   const sortedList = [...currentList].sort((a, b) => {
     if (sortBy === "Duration") return b.duration - a.duration;
     if (sortBy === "Calories") return a.caloriesBurned - b.caloriesBurned;
@@ -57,7 +55,7 @@ const PlanDash = () => {
     if (sortedList.length === 0) {
       return (
         <>
-          <div className="text-center my-10">
+          <div className="text-center p-5 sm:p-20">
             <h2 className="text-[30px] font-medium font-[Oswald]">
               NOTHING HERE YET
             </h2>
@@ -79,25 +77,28 @@ const PlanDash = () => {
         {sortedList.map((item) => (
           <div
             key={item.id}
-            className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4"
+            className="flex flex-col gap-4 sm:flex-row md:items-center sm:justify-between"
           >
-            <div className="flex items-center gap-3">
+            {/* Workout Info */}
+            <div className="flex min-w-0 items-center gap-3">
               <Image
                 src={item.image}
                 alt={item.name}
                 width={160}
                 height={90}
-                className="h-22.5 w-40 shrink-0 rounded-lg object-cover"
+                className="h-20 w-30 shrink-0 rounded-lg object-cover sm:h-22.5 sm:w-40"
               />
 
-              <div>
-                <p className="font-bold font-[Oswald] text-[22px]">
+              <div className="min-w-0">
+                <p className="wrap-break-words font-bold font-[Oswald] text-[14px] sm:text-[22px]">
                   {item.name}
                 </p>
 
-                <p className="text-[16px] text-[#9a9ca5]">{item.equipment}</p>
+                <p className="text-[12px] text-[#9a9ca5] sm:text-[16px]">
+                  {item.equipment}
+                </p>
 
-                <p className="mt-1 text-[14px] text-[#9a9ca5]">
+                <p className="mt-1 text-[12px] text-[#9a9ca5] sm:text-[14px]">
                   {item.duration} min · {item.caloriesBurned} kcal · ⭐{" "}
                   {item.rating}
                 </p>
@@ -105,10 +106,10 @@ const PlanDash = () => {
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap  items-center gap-2 md:shrink-0">
               <Link
                 href={`/${item.id}`}
-                className="rounded-full border border-[#3a3b44] px-5 py-3 text-[14px] font-bold transition hover:border-[#aaff00]"
+                className="rounded-full border border-[#3a3b44] px-3 py-2 text-[12px] font-bold transition hover:border-[#aaff00] sm:px-5 sm:py-3 sm:text-[14px]"
               >
                 View Details
               </Link>
@@ -116,7 +117,7 @@ const PlanDash = () => {
               {activeTab === "Today's Plan" && (
                 <button
                   onClick={() => handleDone(item.id)}
-                  className={`rounded-full px-5 py-3 text-[12px] cursor-pointer font-bold transition ${
+                  className={`cursor-pointer rounded-full px-3 py-2 text-[11px] font-bold transition sm:px-5 sm:py-3 sm:text-[12px] ${
                     item.done
                       ? "bg-[#aaff00] text-black"
                       : "bg-[#aaff00] text-black hover:bg-[#c0ff4d]"
@@ -126,13 +127,14 @@ const PlanDash = () => {
                 </button>
               )}
 
-              <div
+              <button
+                type="button"
                 onClick={() => handleRemove(item.id)}
-                className="px-1 text-lg text-[#9a9ca5] text-[28px] cursor-pointer transition hover:text-white"
+                className="cursor-pointer px-1 text-[24px] text-[#9a9ca5] transition hover:text-white sm:text-[28px]"
                 aria-label="Remove workout"
               >
                 <RxCross2 />
-              </div>
+              </button>
             </div>
           </div>
         ))}
@@ -143,7 +145,7 @@ const PlanDash = () => {
   return (
     <div>
       {/* Summary */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 bg-[#232732] p-10 mt-8 rounded-2xl">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 bg-[#15161C] p-10 mt-8 rounded-2xl">
         {/* Item 1: Exercises Count */}
         <div>
           <p className="text-[#9CA3AF] text-[12px] sm:text-[14px] uppercase tracking-wider font-semibold">
@@ -176,32 +178,32 @@ const PlanDash = () => {
       </div>
 
       {/* Tab */}
-      <div className="tabs tabs-box mt-8">
+      <div className="tabs tabs-box bg-black mt-8 ">
         <input
           type="radio"
           name="my_tabs_6"
-          className="tab"
+          className="tab rounded-[20px] text-[12px] sm:text-[14px] font-semibold px-3 py-1.5 sm:px-6 sm:py-2"
           aria-label="Today's"
           checked={activeTab === "Today's Plan"}
           onChange={() => setActiveTab("Today's Plan")}
         />
-        <div className="tab-content bg-base-100 border-base-300 p-6">
+        <div className="tab-content bg-[#15161C] border-base-300 mt-8 p-6">
           {renderTabContent()}
         </div>
 
         <input
           type="radio"
           name="my_tabs_6"
-          className="tab"
+          className="tab rounded-[20px] text-[12px] sm:text-[14px] font-semibold px-3 py-1.5 sm:px-6 sm:py-2"
           aria-label="Saved"
           onChange={() => setActiveTab("Saved")}
         />
-        <div className="tab-content bg-base-100 border-base-300 p-6">
+        <div className="tab-content bg-[#15161C] border-base-300 mt-8 p-6">
           {renderTabContent()}
         </div>
 
         {/* Sort by */}
-        <div className="flex items-center justify-center gap-2 ms-auto">
+        <div className="flex items-center justify-center gap-2 sm:gap-4 ms-auto">
           <h2 className="font-normal text-[#9CA3AF]">Sort By</h2>
           <div>
             {/* Filter 2: Controlled select */}

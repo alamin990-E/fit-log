@@ -1,15 +1,21 @@
 import SaveButton from "@/components/buttons/SaveButton";
 import TodayPlanButton from "@/components/buttons/TodayPlanButton";
+import ErrorPage from "@/components/shared/ErrorPage";
 import { getExercise } from "@/lib/Api";
 import Image from "next/image";
 import React from "react";
 
 const ExerciseDetailspage = async ({ params }) => {
   const { exerciseId } = await params;
-  const exerciseData = await getExercise();
-  const exercise = exerciseData.find(
-    (item) => String(item.id) === String(exerciseId),
-  );
+ const exerciseData = await getExercise();
+
+const exercise = exerciseData?.find(
+  (item) => String(item.id) === String(exerciseId),
+);
+
+if (!exercise) {
+  return <ErrorPage></ErrorPage>;
+}
   return (
     <div className="container mx-auto my-10 py-5 px-4 md:px-0">
       <div className="grid md:grid-cols-1 justify-center items-center gap-15 lg:grid-cols-2">
