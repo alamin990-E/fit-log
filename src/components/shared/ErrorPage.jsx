@@ -19,16 +19,16 @@ const ErrorPage = () => {
 
         {/* Description */}
         <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-[#9CA3AF] sm:text-base sm:leading-7">
-          Sorry, the page you&apos;re looking for doesn&apos;t exist or may have
-          been moved. Let&apos;s get you back on track.
+          Oops! We couldn&apos;t find the page you&apos;re looking for. Please
+          return to the Workoutspage and keep moving forward.
         </p>
 
         {/* Button */}
         <Link
           href="/"
-          className="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[#C2F800] px-7 py-3 text-sm font-bold text-black transition duration-200 hover:scale-105 hover:bg-[#D2FF33] sm:mt-8 sm:px-8 sm:text-base"
+          className="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[#C2F800] px-7 py-3 text-sm font-bold text-black transition duration-200 sm:mt-8 sm:px-8 sm:text-base"
         >
-          Back to Home
+          Back to Workouts
         </Link>
       </div>
     </div>

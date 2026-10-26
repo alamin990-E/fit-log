@@ -1,6 +1,9 @@
-# FITLOG - Workout Library
+## Project Name: FitLog
 
-FITLOG is a responsive workout library web application where users can explore workouts, view exercise details, add exercises to their daily plan, save workouts for later, and track their workout activities.
+## Description
+
+FitLog is a modern workout management application designed to help users discover exercises, organize daily workout routines, save favorite workouts, and monitor their fitness activities through a simple and responsive interface.
+
 
 ## Technologies Used
 
@@ -9,23 +12,19 @@ FITLOG is a responsive workout library web application where users can explore w
 - JavaScript
 - Tailwind CSS
 - DaisyUI
+- React Icons
 - React Toastify
-- REST API
 
-## Features
 
-- Explore 12 different workouts fetched from an API
-- View detailed information about each workout
-- Add workouts to Today's Plan
-- Save workouts for later
-- View and manage daily workouts and saved exercises
-- Mark completed workouts as Done
-- Remove workouts from Today's Plan or Saved list
-- Sort workouts by Duration, Calories, and Rating
-- Responsive layout for mobile, tablet, and desktop
-- Store workout plans and saved workouts in LocalStorage
-- Display toast notifications for workout actions
 
-## Project Structure
+## Key Features
 
-The project is organized using the Next.js App Router to manage pages, components, and application navigation.
+1. Workout Library — Explore different workouts fetched from a REST API.
+
+2. Workout Details — View detailed exercise information, including images, descriptions, muscle groups, equipment, difficulty, sets, reps, duration, calories, ratings, and instructions.
+
+3. Today's Plan — Add workouts to a daily plan, mark completed workouts as Done, and remove exercises when needed.
+
+4. Saved Workouts — Save favorite workouts and manage saved exercises separately from the daily plan.
+
+5. Sorting & Progress Summary — Sort workouts by duration, calories, and rating, and view workout counts, total duration, and calories.
