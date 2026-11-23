@@ -3,7 +3,7 @@ import ExerciseCard from '../shared/ExerciseCard';
 
 const AllWorkouts = ({exercises}) => {
     return (
-        <section className='container mx-auto my-10 px-4 md:px-0'>
+        <section id="library" className='container mx-auto my-10 px-4 md:px-0'>
                 {/* Heading text */}
              <div className="space-y-1.5 text-center md:text-left">
                 <h2 className="font-[Oswald] text-3xl font-bold uppercase text-white">The Library</h2>

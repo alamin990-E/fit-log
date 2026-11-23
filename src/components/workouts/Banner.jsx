@@ -21,9 +21,11 @@ const Banner = () => {
           into today&apos;s plan, and watch the week&apos;s work add up.
         </p>
 
-        <button className="mt-3 rounded-[10px] border-0 bg-[#C2F800] px-4 py-2.5 text-xs font-bold text-black sm:px-5 sm:py-3 sm:text-sm md:py-2 md:px-4 lg:py-2.5 lg:px-6">
-          BROWSE WORKOUTS
-        </button>
+        <a href="#library" className="inline-block mt-3">
+          <button className="rounded-[10px] border-0 bg-[#C2F800] px-4 py-2.5 text-xs font-bold text-black sm:px-5 sm:py-3 sm:text-sm md:py-2 md:px-4 lg:py-2.5 lg:px-6 cursor-pointer">
+            BROWSE WORKOUTS
+          </button>
+        </a>
       </div>
 
       {/* Banner Image */}

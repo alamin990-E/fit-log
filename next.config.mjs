@@ -1,7 +1,5 @@
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
- 
   reactCompiler: true,
   turbopack: {
     rules: {
@@ -12,13 +10,17 @@ const nextConfig = {
     },
   },
   images: {
-  remotePatterns: [
-    {
-      protocol: "https",
-      hostname: "img.magnific.com",
-    },
-  ],
-},
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
