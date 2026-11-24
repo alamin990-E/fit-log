@@ -14,7 +14,7 @@ const Navbar = () => {
   const { todayList, saveList } = useExerciseContext();
   const [open, setOpen] = useState(false);
 
-  // Better Auth সেশন ডেটা নেওয়া
+  // Better Auth 
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
 
